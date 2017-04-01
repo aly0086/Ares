@@ -2,10 +2,12 @@
 # _*_ coding: utf-8 _*_
 # Author:Aurora.R.L.Y
 # Created on: 01/04/2017 16:37
-
+import django
+django.setup()
 import sys
 from host_manage.modules.modules_dicts import modules_dicts
 from host_manage.modules.help_handbook import handbook
+from host_manage import models
 
 class ArgvsReceiver(object):
     '''
@@ -17,15 +19,16 @@ class ArgvsReceiver(object):
 
         #解析
     def argvs_parse(self):
-        print(self.argvs)
-        if len(self.argvs) <=2:
+        #print(self.argvs)
+
+        if len(self.argvs) <2:
             handbook(self)
         module_name = self.argvs[1]
         if '.' in module_name:
             mod_name,mod_func = module_name.split('.')
-            module_instance = modules_dicts.get(mod_name)
-        if module_instance:
-                module_instance(self.argvs)
+            mod_instance = modules_dicts.get(mod_name)
+            if mod_instance:
+                mod_instance(self.argvs,models)
 
         else:
             exit("invalid argument[module_name]")

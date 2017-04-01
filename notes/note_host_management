@@ -105,7 +105,9 @@
     CMD(BaseParsing)
     State(BaseParsing)
     #每当执行这两个模块，系统会自动提取客户端主机信息
-提取主机列表
+提取主机列表-->fetching_hosts
+    设置选项
+    提取yaml配置文件
 
 
 

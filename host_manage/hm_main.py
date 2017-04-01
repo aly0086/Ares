@@ -6,6 +6,9 @@
 import os,sys
 
 if __name__ == "__main__":
+
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Ares.settings")
+
     #添加app host_manage 的层级环境变量
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sys.path.append(BASE_DIR)
