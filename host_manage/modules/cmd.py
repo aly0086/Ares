@@ -3,6 +3,7 @@
 # Author:Aurora.R.L.Y
 # Created on: 01/04/2017 16:16
 
-class CMD(object):
-    def __init__(self):
-        print('in cmd module')
+from host_manage.options.public_parsing import BaseParsing
+
+class CMD(BaseParsing):
+        pass
