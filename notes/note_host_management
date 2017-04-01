@@ -1,0 +1,80 @@
+主机管理工具
+
+配置管理
+    批量安装nginx,mysql
+    nginx使用指定的配置文件
+    创建mysql用户
+    设置一个默认的数据库访问权限
+    批量启动mysql，nginx
+        使用批量执行命令问题：
+            出错概率大，
+            客户端环境不相同，
+            脚本内容重复，
+            无法检测服务器状态
+            不标准化
+        解决办法：
+            标准化
+            建立客户端守护进程
+
+
+
+远程执行
+
+
+开发一个批量管理工具
+    参考：saltstack --> documents
+        plugins【可插拔】--> subsystems --> core
+                            认证
+                            文件服务器
+                            数据安全库
+                            命令接口 --> rest API接口开发
+                            授权的状态表现形式
+                            任务结果 -->任务最终存储位置
+                            命令 -->
+        流程[subsystem a job run]
+            command interfaces-->command received
+            authentication
+            protocol-->job is placed on event bus and sent to connected minions[agent]
+            configuration management job
+                a-->file server[downloaded]
+                b-->secure data store[retrieved and inserted into state file]
+                c-->state renderer
+                d-->configuration commands
+            or remote execution job
+                a-->execution modules
+            output
+                results are formatted and placed on event bus
+            command interfaces
+                results are retrieved from the event bus and returned to command interfaces
+            returner
+                results are sent to long-term data store
+            reactor
+                reactors are triggered based on events
+
+基本架构
+    master
+        raw_task
+    JSON
+        task-->queue
+        task-->master
+    master
+        task-->queue
+    queue
+        -->client
+    client
+        -->queue[assigned-->callback]
+    queue
+        -->master[callback recieved]
+
+    #每个任务建立临时的queue进行客户端消息回传到master
+
+解析
+    yml文件
+    从服务端进行解析发给客户端，如果有客户端进行了更新，只需要重新连接服务端即可
+
+表结构
+    参考：saltstack state
+    salt 'host' modules.function file test=True
+
+
+
