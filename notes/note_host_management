@@ -76,5 +76,27 @@
     参考：saltstack state
     salt 'host' modules.function file test=True
 
+分发器
+    module.functions
+        如何让插件注册到模块下
+            创建模块分发器，将不同的模块分发到相应的文件下
+                创建程序入口 --> hm_main.py
+                    相当于 manage.py
+                    if '__name__'='__main__'
+                        os.environ
+                        from dispatcher import functions
+                创建模块分发器 --> dispatcher [directory]
+                    连接模块 --> modules_dicts.py
+                        from app.modules[directory] import module
+                    收集模块，创建为字典 --> modules_dicts = {'module_name':(modules.module).function}
+                    创建模块分发器 【dispatcher】
+                        创建路由分发功能command_modules
+                            定义参数接收类 class ArgvsReciever
+                                创建参数解析方法 argvs_parse[]
+
+
+
+
+
 
 
