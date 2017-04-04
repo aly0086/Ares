@@ -14,5 +14,5 @@ if __name__ == "__main__":
     sys.path.append(BASE_DIR)
     #all modules in module_dict
     from host_manage.modules.modules_dicts import modules_dicts
-    from host_manage.dispatcher.commands_modules import ArgvsReceiver
+    from host_manage.dispatcher.disp_mod import ArgvsReceiver
     obj = ArgvsReceiver(sys.argv)

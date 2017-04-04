@@ -1,5 +1,11 @@
 主机管理工具
 
+# 忘记用户密码查看方法
+from django.contrib.auth.models import User
+u = User.objects.get(username__exact='john')
+u.set_password('new password')
+u.save()
+
 配置管理
     批量安装nginx,mysql
     nginx使用指定的配置文件
@@ -90,7 +96,7 @@
                         from app.modules[directory] import module
                     收集模块，创建为字典 --> modules_dicts = {'module_name':(modules.module).function}
                     创建模块分发器 【dispatcher】
-                        创建路由分发功能command_modules
+                        创建路由分发功能dispatcher_mod
                             定义参数接收类 class ArgvsReciever
                                 创建参数解析方法 argvs_parse[]
 
@@ -105,9 +111,26 @@
     CMD(BaseParsing)
     State(BaseParsing)
     #每当执行这两个模块，系统会自动提取客户端主机信息
+#提取主机前 服务器中必须已经存在主机信息
 提取主机列表-->fetching_hosts
     设置选项
-    提取yaml配置文件
+提取主机操作类型--> get_host_os_type
+解析配置
+    触发解析，传入队列，返回结果
+        function.process（）
+    解析cmd和state模块方法
+        解析配置文件in state模块
+            def apply(self):
+        #source file放到指定的地方
+        解析配置文件
+            创建 source directory-->
+            添加sourcedirectorypath到settings
+            解析文件
+                读取yml文件，整理文件格式
+
+
+
+
 
 
 

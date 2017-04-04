@@ -14,7 +14,7 @@ class Host(models.Model):
 
 
     os_type_choices =(
-        ('redhat','Redhat\CentOS/1-6/'),
+        ('redhat','Redhat\CentOS1-6'),
         ('Centos7', 'CentOS7'),
         ('ubuntu','Ubuntu'),
         ('suse','Suse'),
