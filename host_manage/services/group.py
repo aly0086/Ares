@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # _*_ coding: utf-8 _*_
 # Author:Aurora.R.L.Y
-# Created on: 01/04/2017 16:16
+# Created on: 05/04/2017 09:40
 
 from host_manage.dispatcher.disp_options import BaseParsing
 
-class CMD(BaseParsing):
+class Group(BaseParsing):
+    def gid(self,*args,**kwargs):
+        pass
+    def present(self,*args,**kwargs):
         pass

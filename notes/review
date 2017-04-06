@@ -1,0 +1,39 @@
+基础框架
+    server
+    #旨在将配置文件转化为命令
+    #服务器端
+        命令执行
+        文件分发
+        配置管理
+            包管理
+            用户管理
+            文件管里
+            服务管理
+        create models --> host
+                          hostGroup
+        settings --> add app -->host_manage
+        create entrance --> hm_main
+                                1 add BASE_DIR
+                                2 recieve arguments
+
+        create dispatcher --> dispatcher -->disp_mod --> dispatcher modules
+                                                            create mod_dict --> way to collect modules(cmd,state...)
+                                                            start of parsing
+                                                                1 init argvs and argv_parsing
+                                                                2 start parsing
+                                                                    python3 hm_main
+                                                                    if there is no arguments following hm_main,show handbook
+                                                                    if there is arguments following,judge modules[cmd or state...]
+                                            disp_options --> parsing options[parent class for modules]
+                                                                create public class to parse options
+    client
+    #状态管理，创建守护进程，检测客户端状态，如果宕机就重新启动
+    
+    基础题
+        面向对象
+        装饰器 生成器 迭代器
+        集合
+        递归
+        lambada
+
+

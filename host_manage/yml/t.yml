@@ -1,0 +1,17 @@
+apache:
+  user.present:
+    - uid: 87
+    - gid: 87
+    - home: /home/apache
+    - fullname: aurora
+    - password: aly00860532
+    - shell: /bin/nologin
+    - require:
+      - group: apache
+      - file: /tmp/test.file
+      - user: alex
+  group.present:
+    - gid: 87
+    - require:
+      - pkg: apache
+

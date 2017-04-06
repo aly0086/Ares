@@ -127,6 +127,15 @@ u.save()
             添加sourcedirectorypath到settings
             解析文件
                 读取yml文件，整理文件格式
+    动态调用插件 --> mod_conf
+        根据yml文件中选项创建配置模块 mod_conf
+        #如果有相同的配置就用公用类-->user，如果没有就用私有类sys_parsing
+        判断操作系统
+    模块解析
+        将yml化解成为多个命令
+        选择了几个系统，文件就会循环几次
+        逐个模块解析
+
 
 
 

@@ -3,7 +3,7 @@
 # Author:Aurora.R.L.Y
 # Created on: 01/04/2017 17:41
 
-from host_manage.modules.modules_dicts import modules_dicts
+from host_manage.modules.mod_dicts import modules_dicts
 
 def handbook(self):
     print("Avaliable modules:")

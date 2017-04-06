@@ -13,6 +13,7 @@ if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sys.path.append(BASE_DIR)
     #all modules in module_dict
-    from host_manage.modules.modules_dicts import modules_dicts
+    from host_manage.modules.mod_dicts import modules_dicts
     from host_manage.dispatcher.disp_mod import ArgvsReceiver
+
     obj = ArgvsReceiver(sys.argv)

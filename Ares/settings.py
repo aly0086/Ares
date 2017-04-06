@@ -125,5 +125,5 @@ STATIC_URL = '/static/'
 
 #for host_manage
 SOURCE_CONF_FILE_DIR = "%s/host_manage/yml" % BASE_DIR
-
+MODULES_DIR = "%s/host_manage/services" % BASE_DIR
 
