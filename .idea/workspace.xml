@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d703b536-35da-4409-91dd-28ab618f06a6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_module.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/host_manage/dispatcher/pub_parsing.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/host_manage/migrations/0002_auto_20170401_1101.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/host_manage/migrations/0003_auto_20170403_1401.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/host_manage/modules/modules_dicts.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/state.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ares/settings.py" afterPath="$PROJECT_DIR$/Ares/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/dispatcher/disp_mod.py" afterPath="$PROJECT_DIR$/host_manage/dispatcher/disp_mod.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/hm_main.py" afterPath="$PROJECT_DIR$/host_manage/hm_main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/host_manage/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/modules/cmd.py" afterPath="$PROJECT_DIR$/host_manage/modules/cmd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/modules/help_handbook.py" afterPath="$PROJECT_DIR$/host_manage/modules/help_handbook.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/modules/state.py" afterPath="$PROJECT_DIR$/host_manage/modules/state.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/yml/test.yml" afterPath="$PROJECT_DIR$/host_manage/yml/test.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes/note_host_management" afterPath="$PROJECT_DIR$/notes/note_host_management" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/host_manage/dispatcher/disp_options.py" afterPath="$PROJECT_DIR$/host_manage/dispatcher/disp_options.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="disp_options.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="disp_options.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/host_manage/dispatcher/disp_options.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+            <state relative-caret-position="-18">
+              <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -116,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="state.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="state.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/host_manage/modules/state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="52" column="27" lean-forward="true" selection-start-line="52" selection-start-column="27" selection-end-line="76" selection-end-column="57" />
+            <state relative-caret-position="378">
+              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,8 +148,8 @@
         <option value="$PROJECT_DIR$/host_manage/dispatcher/disp_mod.py" />
         <option value="$PROJECT_DIR$/notes/note_host_management" />
         <option value="$PROJECT_DIR$/Ares/settings.py" />
-        <option value="$PROJECT_DIR$/host_manage/modules/state.py" />
         <option value="$PROJECT_DIR$/host_manage/dispatcher/disp_options.py" />
+        <option value="$PROJECT_DIR$/host_manage/modules/state.py" />
       </list>
     </option>
   </component>
@@ -928,18 +914,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/host_manage/modules/state.py">
+    <entry file="file://$PROJECT_DIR$/host_manage/dispatcher/disp_options.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="52" column="27" lean-forward="true" selection-start-line="52" selection-start-column="27" selection-end-line="76" selection-end-column="57" />
+        <state relative-caret-position="-18">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/host_manage/dispatcher/disp_options.py">
+    <entry file="file://$PROJECT_DIR$/host_manage/modules/state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        <state relative-caret-position="378">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding />
         </state>
       </provider>

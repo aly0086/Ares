@@ -2,7 +2,7 @@
 # _*_ coding: utf-8 _*_
 # Author:Aurora.R.L.Y
 # Created on: 01/04/2017 17:56
-
+import os
 
 class BaseParsing(object):
     #初始化方法，便于调用
@@ -17,6 +17,35 @@ class BaseParsing(object):
         # data_type is in function set
             exit("[%s] data type is not valid" % key)
 
+    def get_mod_inst(self,*args,**kwargs):
+        base_mod_name = kwargs.get('base_mod_name')
+        os_type = kwargs.get('os_type')
+        mod_conf_path = "%s/%s.py" % (self.settings.MODULES_DIR, base_mod_name)
+        if os.path.isfile(mod_conf_path):
+
+            # 导入services模块
+            mod_conf = __import__("services.%s" % base_mod_name)
+            # 自动实现系统类型和配置文件相匹配
+            comp_os_mod_name = "%s%s" % (os_type.capitalize(), base_mod_name.capitalize())
+            # 判断有没有根据操作系统的类型进行特殊解析的类，是否在文件中
+            # 导入模块
+            imp_mod = getattr(mod_conf, base_mod_name)
+            if hasattr(imp_mod, comp_os_mod_name):
+                # 导入私有类
+                mod_inst = getattr(imp_mod, comp_os_mod_name)
+            else:
+                # 导入通用类
+                mod_inst = getattr(imp_mod, base_mod_name.capitalize())
+            # 开始调用module进行解析
+            # 实例化mod_obj
+            mod_obj = mod_inst(self.sys_argvs, self.db_mod, self.settings)
+            return mod_obj
+
+        else:
+            exit("modules[%s] is not exist" % base_mod_name)
+            # print("  ",sec_key)
+            # for branch_value in sec_value:
+            #    print("\t",branch_value)
 
 
     def get_selected_os_types(self):
