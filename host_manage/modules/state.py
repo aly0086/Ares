@@ -4,7 +4,6 @@
 # Created on: 01/04/2017 16:16
 
 import os
-
 from host_manage.dispatcher.disp_options import BaseParsing
 
 class State(BaseParsing):
