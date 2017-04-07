@@ -10,3 +10,6 @@ class Pkg(BaseParsing):
 
     def installed(self,*args,**kwargs):
         pass
+
+    def required_check(self, *args, **kwargs):
+        pass

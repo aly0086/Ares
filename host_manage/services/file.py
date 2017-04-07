@@ -22,3 +22,9 @@ class File(BaseParsing):
         pass
     def directory(self,*args,**kwargs):
         pass
+
+    #生成命令集给客户端判断要不要执行
+    def required_check(self, *args, **kwargs):
+        file_path = args[1]
+        cmd = "test -f %s;echo $?" % file_path
+        return cmd

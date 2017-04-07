@@ -10,3 +10,9 @@ class Group(BaseParsing):
         pass
     def present(self,*args,**kwargs):
         pass
+
+    def required_check(self, *args, **kwargs):
+        print('checking user required', args, kwargs)
+        name = args[1]
+        cmd = '''cat /etc/group |awk -F':''{print $1}' | grep -w %s -q;echo $?''' % name
+        return cmd

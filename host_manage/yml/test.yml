@@ -4,10 +4,10 @@ apache:
       - vim
       - nginx: 1.2.4
       - python-django
-  #services.running:
-    #- reload: True
-    #- watch:
-      #- file: /etc/httpd/conf/httpd.conf
+  services.running:
+    - reload: True
+    - watch:
+      - file: /etc/httpd/conf/httpd.conf
   user.present:
     - uid: 87
     - gid: 87

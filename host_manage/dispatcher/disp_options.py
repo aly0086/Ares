@@ -53,7 +53,7 @@ class BaseParsing(object):
         os = {}
         for host in self.host_list:
             os[host.os_type] = []
-        print('--> os type:', os)
+        print('---------------> os type:', os)
         return os
 
     def process(self):
@@ -62,11 +62,25 @@ class BaseParsing(object):
         #生成操作系统类型
         self.config_data_dict = self.get_selected_os_types()
 
+
     def require(self,*args,**kwargs):
         #print("require",args,kwargs)
+        os_type = kwargs.get('os_type')
+
+        self.require_list = []
         for item in args[0]:
             for op_key,op_val in item.items():
-                pass #if hasattr()
+                mod_obj = self.get_mod_inst(base_mod_name=op_key,os_type=os_type)
+                require_cond = mod_obj.required_check(op_key,op_val)
+                self.require_list.append(require_cond)
+                # print('mod obj',mod_obj)
+        print("require list:",self.require_list)
+
+
+
+    def required_check(self,*args,**kwargs):
+        exit('method required_check must be implemented [%s]' % args[0])
+
 
 
     def fetching_hosts(self):
@@ -102,7 +116,7 @@ class BaseParsing(object):
             exit("no options [-h] or [-g]")
 
     #进行 yml  文件解析
-    def syntax_check(self,main_key,sec_key,sec_value):#apache user.present
+    def syntax_check(self,main_key,sec_key,sec_value,os_type):#apache user.present
         print("-->parsing yml:\n"," ",main_key,"\n","   ",sec_key)
         #将单行参数与多参数进行分类
         self.single_argvs = []
@@ -113,7 +127,7 @@ class BaseParsing(object):
             for key,val in sec_key_v.items():
                 if hasattr(self,key):
                     yml_func = getattr(self,key)
-                    yml_func(val,section=main_key)
+                    yml_func(val,section=main_key,os_type=os_type)
 
                 else:
                     exit("module[%s] has no argument [%s]" %(sec_key,key))
@@ -123,7 +137,13 @@ class BaseParsing(object):
 
                if hasattr(self,sec_key_back):
                    sec_key_func = getattr(self,sec_key_back)
-                   sec_key_func(section=main_key)
+                   option_list = sec_key_func(section=main_key)#present
+                   comb = {
+                       'option_list':option_list,
+                       'require_list':self.require_list
+                   }
+                   #以上section里面的具体module已经解析结束
+                   return comb
                else:
                    exit("[%s] has no method [%s]" %(sec_key,sec_key_back))
            else:

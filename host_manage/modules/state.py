@@ -49,28 +49,14 @@ class State(BaseParsing):
 
                         for sec_key,sec_value in main_value.items():
                             base_mod_name = sec_key.split(".")[0]
-                            mod_conf_path = "%s/%s.py" % (self.settings.MODULES_DIR,base_mod_name)
-                            if os.path.isfile(mod_conf_path):
-
-                                # 导入services模块
-                                mod_conf = __import__("services.%s" % base_mod_name)
-                                #自动实现系统类型和配置文件相匹配
-                                comp_os_mod_name = "%s%s" % (os_type.capitalize(),base_mod_name.capitalize())
-                                # 判断有没有根据操作系统的类型进行特殊解析的类，是否在文件中
-                                # 导入模块
-                                imp_mod = getattr(mod_conf, base_mod_name)
-                                if hasattr(imp_mod,comp_os_mod_name):
-                                    #导入私有类
-                                    mod_inst = getattr(imp_mod,comp_os_mod_name)
-                                else:
-                                    #导入通用类
-                                    mod_inst = getattr(imp_mod,base_mod_name.capitalize())
-                                # 开始调用module进行解析
-                                # 实例化mod_obj
-                                mod_obj = mod_inst(self.sys_argvs,self.db_mod,self.settings)
-                                mod_obj.syntax_check(main_key,sec_key,sec_value)#apache,user.present
-                            else:
-                                exit("modules[%s] is not exist" % base_mod_name)
+                            # 开始调用module进行解析
+                            # 实例化mod_obj
+                            mod_obj = self.get_mod_inst(base_mod_name=base_mod_name,os_type=os_type)
+                            mod_parse_result = mod_obj.syntax_check(main_key,sec_key,sec_value,os_type)#apache,user.present
+                            self.config_data_dict[os_type].append(mod_parse_result)
+                           #代表上面的所有数据解析已经完成，接下来生成一个任务，并把任务交给客户端
+                            print('config_data_dic'.center(60,'*'))
+                            print(self.config_data_dict)
                             #print("  ",sec_key)
                             #for branch_value in sec_value:
                             #    print("\t",branch_value)

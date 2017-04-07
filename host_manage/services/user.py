@@ -45,19 +45,26 @@ class User(BaseParsing):
         self.single_argvs.insert(0,"useradd %s" % username)
         options_list.append(' '.join(self.single_argvs))
         options_list.extend(self.single_line_argvs)
+        return options_list
         #print("single line argv:",self.single_line_argvs)
-        print("option list:",options_list)
+        #print("option list:",options_list)
+
+    # 检测自身选项
+    def required_check(self,*args,**kwargs):
+        print('checking user required',args,kwargs)
+        name = args[1]
+        cmd ='''cat /etc/group |awk -F':''{print $1}' | grep -w %s -q;echo $?''' % name
+        return cmd
 
 
-
-#特殊设定 便于修改不同的参数
+# 特殊设定 便于修改不同的参数
 class UbuntuUser(User):
-    #重写公用类设定
-    #def home(self,*args,**kwargs):
-        #print("in ubuntu home")
+    # 重写公用类设定
+    # def home(self,*args,**kwargs):
+        # print("in ubuntu home")
 
     def password(self,*args,**kwargs):
-        #传入用户名参数通过kwargs
+        # 传入用户名参数通过kwargs
         username = kwargs.get('section')
         password = args[0]
         cmd = '''echo "%s:%s" | sudo chpasswd''' %(username,password)

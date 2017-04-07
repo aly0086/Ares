@@ -1,8 +1,9 @@
 主机管理工具
 
 # 忘记用户密码查看方法
+python manage.py shell
 from django.contrib.auth.models import User
-u = User.objects.get(username__exact='john')
+u = User.objects.get(username__exact='aurora')
 u.set_password('new password')
 u.save()
 
@@ -135,6 +136,14 @@ u.save()
         将yml化解成为多个命令
         选择了几个系统，文件就会循环几次
         逐个模块解析
+    生成解析
+        处理依赖关系
+            将user下的命令进行打包
+            将require变成结构集
+                判断require下的选项是否成立
+                    require check 是判断 file的选项是否存在
+                生成检测文件的结果列表，将列表反馈给客户端，客户端进行执行
+
 
 
 

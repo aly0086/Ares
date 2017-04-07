@@ -4,7 +4,7 @@
 # Created on: 04/04/2017 21:25
 from host_manage.dispatcher.disp_options import BaseParsing
 
-class Service(BaseParsing):
+class Services(BaseParsing):
     def reload(self,*args,**kwargs):
         pass
     def watch(self,*args,**kwargs):
